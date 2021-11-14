@@ -12,6 +12,8 @@ import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import javax.swing.ImageIcon;
 import DAL.Entity.Staff;
+import java.awt.Color;
+import javax.swing.JTextField;
 
 /**
  *
@@ -65,5 +67,51 @@ public class ServerHelper {
 
     public boolean CheckLogin() {
         return ServerHelper.URSER != null;
+    }
+
+    public boolean CheckName(JTextField txt) {
+        txt.setBackground(Color.white);
+        String id = txt.getText();
+        String rgs = "^[A-Za-zÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚÝàáâãèéêìíòóôõùúýĂăĐđĨĩŨũƠơƯưẠ-ỹ ]{3,25}$";
+        if (id.matches(rgs)) {
+            return true;
+        } else {
+            txt.setBackground(Color.pink);
+            txt.requestFocus();
+            BoxDiaglog.alert(txt.getRootPane(), txt.getName() + "Tên phải tiếng việt có dấu hoặc viết thường từ: /n[3-25] ký tự");
+            return false;
+        }
+
+    }
+
+    public boolean CheckSDT(JTextField txt) {
+        txt.setBackground(Color.white);
+        String id = txt.getText();
+        String rgx = "(086|096|097|098|032|033|034|035|036|037|038|039|089|090|093|070|079|077|078|076|088|091|094|083|084|085|081|082|092|056|058|099|059)[0-9]{7}";
+        if (id.matches(rgx)) {
+            return true;
+        } else {
+            txt.setBackground(Color.pink);
+            txt.requestFocus();
+            BoxDiaglog.alert(txt.getRootPane(), txt.getName() + "SDT phải gồm 10 số \n Phải đúng đầu số các nhà mạng");
+            return false;
+        }
+
+    }
+
+    public boolean CheckEmail(JTextField txt) {
+        txt.setBackground(Color.white);
+        String id = txt.getText();
+        String rgx = "^[a-zA-Z][a-zA-Z0-9_\\.]{2,32}@[a-zA-Z0-9]{2,10}(\\.[a-zA-Z0-9]{2,4}){1,2}$";
+        if (id.matches(rgx)) {
+            return true;
+
+        } else {
+            txt.setBackground(Color.pink);
+            txt.requestFocus();
+            BoxDiaglog.alert(txt.getRootPane(), txt.getName() + "Không đúng định dạng");
+            return false;
+        }
+
     }
 }
