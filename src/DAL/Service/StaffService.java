@@ -26,8 +26,8 @@ public class StaffService implements WareHouse<Staff, String> {
                 + "values(?,?,?,?,?,?,?,?,?,?,?)";
         JdbcHelper.executeUpdate(sql, entity.getMaNhanVien(),
                 entity.getTaiKhoan(),
-                entity.getMatKhau(),
                 entity.getTenNhanVien(),
+                entity.getMatKhau(),
                 entity.isGioiTinh(),
                 entity.getDiaChi(),
                 entity.getDienThoai(),

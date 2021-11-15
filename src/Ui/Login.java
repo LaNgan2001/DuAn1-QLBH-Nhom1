@@ -5,7 +5,7 @@
 package Ui;
 
 import Business.DTO.StaffDTO;
-import Business.Sevice.StaffSevice;
+import Business.Sevice.StaffSeviceB;
 import DAL.Entity.Staff;
 import Utils.BoxDiaglog;
 import Utils.ServerHelper;
@@ -19,12 +19,12 @@ import java.util.List;
 public class Login extends javax.swing.JFrame {
     
  
-    StaffSevice sev;
+    StaffSeviceB sev;
 
     public Login() {
         initComponents();
         setLocationRelativeTo(null);
-        sev = new StaffSevice();
+        sev = new StaffSeviceB();
         
         
     }

@@ -4,7 +4,7 @@
  */
 
 import Business.DTO.StaffDTO;
-import Business.Sevice.StaffSevice;
+import Business.Sevice.StaffSeviceB;
 import Utils.JdbcHelper;
 import java.sql.Connection;
 import DAL.Service.StaffService;
@@ -27,7 +27,7 @@ import javax.mail.internet.MimeMessage;
  */
 public class ForgetPassword extends javax.swing.JFrame {
 
-    StaffSevice sevStaff;
+    StaffSeviceB sevStaff;
 
     public ForgetPassword() {
         initComponents();
