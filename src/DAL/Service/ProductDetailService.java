@@ -21,15 +21,15 @@ public class ProductDetailService implements WareHouse<ProductDetail, String>{
 
     @Override
     public void insert(ProductDetail entity) {
-        String sql ="insert into Product_Detail(MaSanPhamChiTiet, TenSanPham, SoLuong, GiaNhap, MaSanPham, MaTheLoai, maSize, maMau, TrangThai) values (?,?,?,?,?,?,?,?,?)";
-        JdbcHelper.executeUpdate(sql, entity.getMaSanPhamChiTiet(), entity.getTenSanPham(), entity.getSoLuong(), entity.getGiaNhap(), entity.getMaSanPham(), entity.getMaTheLoai(), 
+        String sql ="insert into Product_Detail(MaSanPhamChiTiet, TenSanPham, SoLuong, GiaNhap,GiaBan, MaSanPham, MaTheLoai, maSize, maMau, TrangThai) values (?,?,?,?,?,?,?,?,?,?)";
+        JdbcHelper.executeUpdate(sql, entity.getMaSanPhamChiTiet(), entity.getTenSanPham(), entity.getSoLuong(), entity.getGiaNhap(), entity.getGiaBan(), entity.getMaSanPham(), entity.getMaTheLoai(), 
                 entity.getMaSize(), entity.getMaMau(), entity.isTrangThai());
     }
 
     @Override
     public void update(ProductDetail entity) {
-        String sql ="update Product_Detail set TenSanPham =?, SoLuong=?, GiaNhap=?, MaSanPham=?, MaTheLoai=?, maSize=?, maMau=?, TrangThai=? where MaSanPhamChiTiet = ?";
-        JdbcHelper.executeUpdate(sql, entity.getTenSanPham(), entity.getSoLuong(), entity.getGiaNhap(), entity.getMaSanPham(), entity.getMaTheLoai(), 
+        String sql ="update Product_Detail set TenSanPham =?, SoLuong=?, GiaNhap=?, GiaBan=?, MaSanPham=?, MaTheLoai=?, maSize=?, maMau=?, TrangThai=? where MaSanPhamChiTiet = ?";
+        JdbcHelper.executeUpdate(sql, entity.getTenSanPham(), entity.getSoLuong(), entity.getGiaNhap(), entity.getGiaBan(),  entity.getMaSanPham(), entity.getMaTheLoai(), 
                 entity.getMaSize(), entity.getMaMau(), entity.isTrangThai(), entity.getMaSanPhamChiTiet());
     }
 
@@ -65,7 +65,8 @@ public class ProductDetailService implements WareHouse<ProductDetail, String>{
                     productDetail.setMaSanPhamChiTiet(rs.getString("MaSanPhamChiTiet"));
                     productDetail.setTenSanPham(rs.getString("TenSanPham"));
                     productDetail.setSoLuong(rs.getInt("SoLuong"));
-                    productDetail.setGiaNhap(rs.getString("GiaNhap"));
+                    productDetail.setGiaNhap(rs.getInt("GiaNhap"));
+                    productDetail.setGiaNhap(rs.getInt("GiaBan"));
                     productDetail.setMaSanPham(rs.getString("MaSanPham"));
                     productDetail.setMaTheLoai(rs.getString("MaTheLoai"));
                     productDetail.setMaSize(rs.getInt("maSize"));

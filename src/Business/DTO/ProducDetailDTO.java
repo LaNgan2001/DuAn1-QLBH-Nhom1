@@ -9,45 +9,83 @@ package Business.DTO;
  * @author Hoang Tue
  */
 public class ProducDetailDTO {
-    private String tenSanpham;
-    private String moTa;
-    private boolean trangThai = false;
+    private String maSPCT;
+   // private String tenSanPham;
+    
+    private String mau;
+    private String size;
+    private int soLuong;
+    private int giaNhap;
+    private int giaBan;
+    
+    
 
     public ProducDetailDTO() {
     }
 
-    public ProducDetailDTO(String tenSanpham, String moTa) {
-        this.tenSanpham = tenSanpham;
-        this.moTa = moTa;
+    public String getMaSPCT() {
+        return maSPCT;
     }
 
-    public String getTenSanpham() {
-        return tenSanpham;
+    public void setMaSPCT(String maSPCT) {
+        this.maSPCT = maSPCT;
     }
 
-    public void setTenSanpham(String tenSanpham) {
-        this.tenSanpham = tenSanpham;
+    public int getGiaNhap() {
+        return giaNhap;
     }
 
-    public String getMoTa() {
-        return moTa;
+    public void setGiaNhap(int giaNhap) {
+        this.giaNhap = giaNhap;
     }
 
-    public void setMoTa(String moTa) {
-        this.moTa = moTa;
+    public int getGiaBan() {
+        return giaBan;
     }
 
-    public boolean isTrangThai() {
-        return trangThai;
+    public void setGiaBan(int giaBan) {
+        this.giaBan = giaBan;
     }
 
-    public void setTrangThai(boolean trangThai) {
-        this.trangThai = trangThai;
+   
+
+    public int getSoLuong() {
+        return soLuong;
     }
 
-    @Override
-    public String toString() {
-        return "ProducDetailDTO{" + "tenSanpham=" + tenSanpham + ", moTa=" + moTa + ", trangThai=" + trangThai + '}';
+    public void setSoLuong(int soLuong) {
+        this.soLuong = soLuong;
     }
+
+    public String getMau() {
+        return mau;
+    }
+
+    public void setMau(String mau) {
+        this.mau = mau;
+    }
+
+    public String getSize() {
+        return size;
+    }
+
+    public void setSize(String size) {
+        this.size = size;
+    }
+
+    public ProducDetailDTO(String maSPCT, String mau, String size, int soLuong, int giaNhap, int giaBan) {
+        this.maSPCT = maSPCT;
+        this.mau = mau;
+        this.size = size;
+        this.soLuong = soLuong;
+        this.giaNhap = giaNhap;
+        this.giaBan = giaBan;
+    }
+
+    
+  
+    
+    
+
     
 }
