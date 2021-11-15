@@ -48,6 +48,7 @@ public class CategoryService implements WareHouse<Category, String>{
         if(list.isEmpty()){
         return null;
         }
+        
         return list.get(0);
         
     }
@@ -61,7 +62,7 @@ public class CategoryService implements WareHouse<Category, String>{
             while (rs.next()) {
                 Category category = new Category();
                 category.setMaTheLoai(rs.getString("MaTheLoai"));
-                category.setMaTheLoai(rs.getString("TenTheLoai"));
+                category.setTenTheLoai(rs.getString("TenTheLoai"));
                 category.setTrangThai(rs.getBoolean("TrangThai"));
                 listProduct.add(category);
                 

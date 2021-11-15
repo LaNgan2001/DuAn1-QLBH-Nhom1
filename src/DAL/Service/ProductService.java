@@ -23,25 +23,19 @@ public class ProductService implements WareHouse<Product, String>{
 
     @Override
     public void insert(Product entity) {
-        String sql ="insert into Product(MaSanPham, TenSanPham, MaTheLoai, Anh, GhiChu, TrangThai, IsDelete) values (?,?, ?, ?,?,?,?)";
+        String sql ="insert into Product(MaSanPham, TenSanPham, MaTheLoai, TrangThai) values (?,?, ?, ?)";
         JdbcHelper.executeUpdate(sql, entity.getMaSanPham(), 
                                     entity.getTenSanPham(),
-                                    entity.getMaTheLoai(),
-                                    entity.getAnh(),
-                                    entity.getGhiChu(),
-                                    entity.getTrangThai(),
-                                    entity.isIsDelete());
+                                    entity.getMaTheLoai(),                                 
+                                    entity.getTrangThai());
     }
     @Override
     public void update(Product entity) {
-        String sql  = "update Product set TenSanPham=?, MaTheLoai =?, Anh= ?, GhiChu=?, TrangThai =? , IsDelete = ? where MaSanPham= ?";
+        String sql  = "update Product set TenSanPham=?, MaTheLoai =?, TrangThai =? where MaSanPham= ?";
         JdbcHelper.executeUpdate(sql, entity.getTenSanPham(),
-                                    entity.getMaTheLoai(),
-                                    entity.getAnh(),
-                                    entity.getGhiChu(),
-                                    entity.getTrangThai(),
-                                    entity.isIsDelete(),
-                                    entity.getMaSanPham());
+                                        entity.getMaTheLoai(),                           
+                                         entity.getTrangThai(),
+                                        entity.getMaSanPham());
     }
 
     @Override
@@ -72,7 +66,6 @@ public class ProductService implements WareHouse<Product, String>{
                 product.setMaSanPham(rs.getString("MaSanPham"));
                 product.setTenSanPham(rs.getString("TenSanPham"));
                 product.setMaTheLoai(rs.getString("MaTheLoai"));
-                product.setAnh(rs.getString("Anh"));
                 product.setGhiChu(rs.getString("GhiChu"));
                 product.setTrangThai(rs.getInt("TrangThai"));
                 product.setIsDelete(rs.getBoolean("IsDelete"));

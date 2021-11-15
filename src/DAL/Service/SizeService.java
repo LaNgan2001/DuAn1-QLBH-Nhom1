@@ -45,7 +45,7 @@ public class SizeService implements WareHouse<Size, Integer> {
 
     @Override
     public Size select_by_id(Integer key) {
-        List<Size> list = selectbySQL("select * from size maSize=?", key);
+        List<Size> list = selectbySQL("select * from size where maSize=?", key);
         if(list.isEmpty()){
         return null;}
         return list.get(0);
@@ -53,15 +53,15 @@ public class SizeService implements WareHouse<Size, Integer> {
 
     @Override
     public List<Size> selectbySQL(String sql, Object... arg) {
-         List<Size> listSize =new ArrayList<>();
+         List<Size> listSize = new ArrayList<>();
         try {
            
             ResultSet rs = JdbcHelper.executeQuery(sql, arg);
             while (rs.next()) {
                 Size size = new Size();
                 size.setMaSize(rs.getInt("maSize"));
-                size.setMaSize(rs.getInt("TenSize"));
-                size.setMaSize(rs.getInt("TrangThai"));
+                size.setTenSize(rs.getString("TenSize"));
+                size.setTrangThai(rs.getBoolean("TrangThai"));
                 listSize.add(size);
                 
             }
